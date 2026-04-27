@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Monitor - Real-Time Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">📊</div>
+            <h1>SYSTEM MONITOR</h1>
+            <p>Real-Time Performance Dashboard</p>
+            <div class="status-bar">
+                <div class="status-item">
+                    <div class="status-dot"></div>
+                    <span>Live Monitoring</span>
+                </div>
+                <div class="status-item">
+                    <div class="status-dot"></div>
+                    <span>Auto Updating</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="dashboard">
+            <!-- CPU Card -->
+            <div class="card">
+                <div class="card-icon">⚡</div>
+                <h2>CPU Usage</h2>
+                <div class="progress-ring-container">
+                    <svg class="progress-ring" width="150" height="150">
+                        <circle stroke="rgba(255, 255, 255, 0.2)" fill="transparent" stroke-width="8" r="66" cx="75" cy="75" />
+                        <circle id="cpuRing" class="progress-ring-circle" stroke="#ff6b6b" fill="transparent" stroke-width="8" r="66" cx="75" cy="75" style="stroke-dasharray: 414.48; stroke-dashoffset: 414.48;" />
+                    </svg>
+                    <div class="progress-value" id="cpuValue">0%</div>
+                </div>
+                <div class="status-text" id="cpuStatus">Optimal</div>
+                <div class="alert" id="cpuAlert">⚠️ CPU usage is high</div>
+                <div class="alert-normal" id="cpuNormal">✅ CPU is Normal</div>
+                <div class="last-update" id="cpuTime">Last updated: --:--:--</div>
+            </div>
+
+            <!-- Memory Card -->
+            <div class="card">
+                <div class="card-icon">💾</div>
+                <h2>Memory Usage</h2>
+                <div class="progress-ring-container">
+                    <svg class="progress-ring" width="150" height="150">
+                        <circle stroke="rgba(255, 255, 255, 0.2)" fill="transparent" stroke-width="8" r="66" cx="75" cy="75" />
+                        <circle id="memoryRing" class="progress-ring-circle" stroke="#ffd93d" fill="transparent" stroke-width="8" r="66" cx="75" cy="75" style="stroke-dasharray: 414.48; stroke-dashoffset: 414.48;" />
+                    </svg>
+                    <div class="progress-value" id="memoryValue">0%</div>
+                </div>
+                <div class="status-text" id="memoryStatus">Optimal</div>
+                <div class="alert" id="memoryAlert">⚠️ Memory usage is high</div>
+                <div class="alert-normal" id="memoryNormal">✅ Memory is Normal</div>
+                <div class="last-update" id="memoryTime">Last updated: --:--:--</div>
+            </div>
+
+            <!-- Disk Card -->
+            <div class="card">
+                <div class="card-icon">💿</div>
+                <h2>Disk Usage</h2>
+                <div class="progress-ring-container">
+                    <svg class="progress-ring" width="150" height="150">
+                        <circle stroke="rgba(255, 255, 255, 0.2)" fill="transparent" stroke-width="8" r="66" cx="75" cy="75" />
+                        <circle id="diskRing" class="progress-ring-circle" stroke="#6bcf7f" fill="transparent" stroke-width="8" r="66" cx="75" cy="75" style="stroke-dasharray: 414.48; stroke-dashoffset: 414.48;" />
+                    </svg>
+                    <div class="progress-value" id="diskValue">0%</div>
+                </div>
+                <div class="status-text" id="diskStatus">Optimal</div>
+                <div class="alert" id="diskAlert">⚠️ Disk usage is high</div>
+                <div class="alert-normal" id="diskNormal">✅ Disk is Normal</div>
+                <div class="last-update" id="diskTime">Last updated: --:--:--</div>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="performanceChart"></canvas>
+        </div>
+
+        <div style="text-align: center; margin-top: 20px;">
+            <span class="connection-status" id="connectionStatus">● Connected</span>
+        </div>
+
+        <div class="footer">
+            <p>System Monitoring Dashboard v1.0</p>
+            <p>Real-time metrics updated every 2 seconds</p>
+            <p style="margin-top: 15px; opacity: 0.5;">🛡️ Advanced System Monitoring & Analytics</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
